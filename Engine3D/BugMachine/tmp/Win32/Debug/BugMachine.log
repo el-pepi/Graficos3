@@ -1,0 +1,20 @@
+﻿  Window.cpp
+  Text.cpp
+  Renderer.cpp
+  pg2_vertexbuffer.cpp
+  pg2_indexbuffer.cpp
+  pg1_timer.cpp
+  pg1_input.cpp
+  pg1_directinput.cpp
+  Node.cpp
+  Mesh.cpp
+  Importador.cpp
+  Game.cpp
+  Frustum.cpp
+  Entity3D.cpp
+  Engine.cpp
+  Camera.cpp
+  Generando código...
+     Creando biblioteca C:\Users\822\Desktop\PG2MP-master\PG2MP-master\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.lib y objeto C:\Users\822\Desktop\PG2MP-master\PG2MP-master\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.exp
+  BugMachine.vcxproj -> C:\Users\822\Desktop\PG2MP-master\PG2MP-master\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.dll
+  BugMachine.vcxproj -> C:\Users\822\Desktop\PG2MP-master\PG2MP-master\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.pdb (Full PDB)
