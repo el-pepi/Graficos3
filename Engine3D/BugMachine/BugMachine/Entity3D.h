@@ -40,6 +40,9 @@ public:
 	DLLexport void setName(std::string name);
 	DLLexport std::string getName();
 
+	DLLexport void setPolygonCount(int ammount);
+	DLLexport int getPolygonCount();
+
 	Node* _parent;
 	AABB BV;
 
@@ -56,6 +59,7 @@ private:
 	void updateLocalTransformation();
 	
 	std::string _name;
+	int _polygonCount;
 
 protected:	
 	float getParentScaleX();

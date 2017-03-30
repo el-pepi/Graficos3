@@ -51,7 +51,7 @@ bool Pacman::init(Renderer& rendi){
 	nodo1 = new Node();
 	nodo1->setName("Root");
 	importador = new Importador(rendi);
-	importador->importScene("sample_scene.dae", *nodo1);
+	importador->importScene("sample_scene.dae", *nodo1,rendi);
 	nodo1->setScale(1, 1, 1);
 	nodo1->setRotation(0, 0, 0);
 	nodo1->setPos(0, 0, 0);
@@ -61,43 +61,43 @@ bool Pacman::init(Renderer& rendi){
 
 	cube = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube);
+	importador->importScene("cube.obj", *cube, rendi);
 	cube->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube2 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube2);
+	importador->importScene("cube.obj", *cube2, rendi);
 	cube2->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube3 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube3);
+	importador->importScene("cube.obj", *cube3, rendi);
 	cube3->setScale(cubeScale, cubeScale, cubeScale);
 
 
 	cube4 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube4);
+	importador->importScene("cube.obj", *cube4, rendi);
 	cube4->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube5 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube5);
+	importador->importScene("cube.obj", *cube5, rendi);
 	cube5->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube6 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube6);
+	importador->importScene("cube.obj", *cube6, rendi);
 	cube6->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube7 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube7);
+	importador->importScene("cube.obj", *cube7, rendi);
 	cube7->setScale(cubeScale, cubeScale, cubeScale);
 
 	cube8 = new Node();
 	importador = new Importador(rendi);
-	importador->importScene("cube.obj", *cube8);
+	importador->importScene("cube.obj", *cube8, rendi);
 	cube8->setScale(cubeScale, cubeScale, cubeScale);
 
 	frustum = new Frustum(rendi);
@@ -151,16 +151,25 @@ void Pacman::frame(Renderer& renderer, Input& input, Timer& timer){
 	cube7->setPos(nodo1->BV.ActualxMin, nodo1->BV.ActualyMax, nodo1->BV.ActualzMin);
 	cube8->setPos(nodo1->BV.ActualxMax, nodo1->BV.ActualyMin, nodo1->BV.ActualzMin);
 
-
-	  cube->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube2->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube3->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube4->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube5->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube6->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube7->draw(renderer, CollisionResult::AllInside, *frustum);
-	 cube8->draw(renderer, CollisionResult::AllInside, *frustum);
-
+	cube->updateBV();
+	cube2->updateBV();
+	cube3->updateBV();
+	cube4->updateBV();
+	cube5->updateBV();
+	cube6->updateBV();
+	cube7->updateBV();
+	cube8->updateBV();
+	cube->draw(renderer, cam->frustum->CheckCollision(cube->BV), *frustum);
+	cube2->draw(renderer, cam->frustum->CheckCollision(cube2->BV), *frustum);
+	cube3->draw(renderer, cam->frustum->CheckCollision(cube3->BV), *frustum);
+	cube4->draw(renderer, cam->frustum->CheckCollision(cube4->BV), *frustum);
+	cube5->draw(renderer, cam->frustum->CheckCollision(cube5->BV), *frustum);
+	cube6->draw(renderer, cam->frustum->CheckCollision(cube6->BV), *frustum);
+	cube7->draw(renderer, cam->frustum->CheckCollision(cube7->BV), *frustum);
+	cube8->draw(renderer, cam->frustum->CheckCollision(cube8->BV), *frustum);
+	 
+	 _text.setText(_text._text + "\n\n Drawn polygons: " + std::to_string(renderer.getDrawnFaces()) + "\n Total polygons: " + std::to_string(renderer.getTotalFaces()));
+	 renderer.setDrawnFaces(0);
 	 _text.draw(renderer);
 }
 //---------------------------------------------------------------------------

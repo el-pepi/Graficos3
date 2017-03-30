@@ -169,7 +169,20 @@ void Renderer::setCurrentTexture(const Texture& texture){
 	d3ddev->SetTexture(0, texture);
 }
 //---------------------------------------------------------------------------
-void Renderer::drawText(ID3DXFont* _Font, std::string& _text, RECT& _rect){
+void Renderer::drawText(ID3DXFont* _Font, std::string& _text, RECT& _rect) {
 	_Font->DrawTextA(NULL, _text.c_str(), -1, &_rect, DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
 }
 //---------------------------------------------------------------------------
+void Renderer::setDrawnFaces(int faces) {
+	drawnFaces = faces;
+}
+int Renderer::getDrawnFaces() {
+	return drawnFaces;
+}
+//---------------------------------------------------------------------------
+void Renderer::setTotalFaces(int faces) {
+	totalFaces = faces;
+}
+int Renderer::getTotalFaces() {
+	return totalFaces;
+}

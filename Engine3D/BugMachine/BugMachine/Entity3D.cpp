@@ -31,8 +31,16 @@ std::string Entity3D::getName(){
 	return _name;
 }
 //---------------------------------------------------------------------------
-void Entity3D::setName(std::string name){
+void Entity3D::setName(std::string name) {
 	_name = name;
+}
+//---------------------------------------------------------------------------
+void Entity3D::setPolygonCount(int ammount) {
+	_polygonCount = ammount;
+}
+//---------------------------------------------------------------------------
+int Entity3D::getPolygonCount() {
+	return _polygonCount;
 }
 //---------------------------------------------------------------------------
 Entity3D::~Entity3D(){

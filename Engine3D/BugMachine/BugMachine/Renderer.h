@@ -45,6 +45,13 @@ public:
 	float screenDepth;
 	Matrix projectionMatrix;
 
+	int drawnFaces;
+	DLLexport void setDrawnFaces(int faces);
+	DLLexport int getDrawnFaces();
+	int totalFaces;
+	DLLexport void setTotalFaces(int faces);
+	DLLexport int getTotalFaces();
+
 private:
 	VertexBuffer* v_buffer;
 	VertexBuffer* v_bufferS;
