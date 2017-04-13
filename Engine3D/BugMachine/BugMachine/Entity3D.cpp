@@ -130,7 +130,6 @@ void Entity3D::updateLocalTransformation(){
 
 	D3DXMATRIX rotationMatZ;
 	D3DXMatrixRotationZ(&rotationMatZ, _rotationZ);
-
 	D3DXMATRIX scaleMat;
 	D3DXMatrixScaling(&scaleMat, _scaleX, _scaleY, _scaleZ);
 
