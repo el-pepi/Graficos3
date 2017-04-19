@@ -47,7 +47,7 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 			verticesT[i].y = mesh->mVertices[i].y;
 			verticesT[i].z = mesh->mVertices[i].z;
 			verticesT[i].u = mesh->mTextureCoords[0][i].x;
-			verticesT[i].v = -mesh->mTextureCoords[0][i].y;
+			verticesT[i].v = mesh->mTextureCoords[0][i].y;
 		}
 
 		_mesh->setMeshData(verticesT, Primitive::TriangleList, mesh->mNumVertices, indices, mesh->mNumFaces * 3);
@@ -87,7 +87,7 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 			for (unsigned int i = pathName.size(); i != -1; i--){
 				tmp = pathName[i];
 
-				if (tmp == '/') ready = true;
+				if (tmp == '/' || tmp == '\\') ready = true;
 				
 				if (!ready){
 					stackFinal.push(tmp);
@@ -102,6 +102,9 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 			}
 
 			_mesh->setTextureId(rendi.loadTexture(pathFinal, D3DCOLOR_XRGB(255, 0, 255)));
+		}
+		else {
+			_mesh->setTextureId(NULL);
 		}
 
 		orkSceneRoot.AddChild(_mesh);

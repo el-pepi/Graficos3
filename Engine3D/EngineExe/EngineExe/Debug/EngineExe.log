@@ -1,3 +1,4 @@
 ﻿  Pacman.cpp
+cl : Línea de comandos warning D9028: error de recompilación mínimo, revirtiendo a la compilación normal
   EngineExe.vcxproj -> C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\..\BugMachine\bin\Win32\Debug\EngineExe.exe
   EngineExe.vcxproj -> C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\..\BugMachine\bin\Win32\Debug\EngineExe.pdb (Full PDB)
