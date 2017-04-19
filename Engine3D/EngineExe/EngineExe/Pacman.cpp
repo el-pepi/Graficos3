@@ -53,7 +53,7 @@ bool Pacman::init(Renderer& rendi){
 	importador = new Importador(rendi);
 	importador->importScene("BSPtest.dae", *nodo1,rendi);
 	nodo1->setScale(1, 1, 1);
-	nodo1->setRotation(0, 0, 0);
+	//nodo1->setRotation(0, 0, 0, 0);
 	nodo1->setPos(0, 0, 0);
 
 	//teapot = new Mesh(rendi);

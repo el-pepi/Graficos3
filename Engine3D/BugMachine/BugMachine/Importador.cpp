@@ -61,7 +61,7 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 		_mesh->setScale(scale.x, scale.y, scale.z);
 
 
-		double ysqr = rotation.y * rotation.y;
+		/*double ysqr = rotation.y * rotation.y;
 
 		double t0 = +2.0 * (rotation.w * rotation.x + rotation.y * rotation.z);
 		double t1 = +1.0 - 2.0 * (rotation.x * rotation.x + ysqr);
@@ -72,8 +72,8 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 
 		double t3 = +2.0 * (rotation.w * rotation.z + rotation.x * rotation.y);
 		double t4 = +1.0 - 2.0 * (ysqr + rotation.z * rotation.z);
-
-		_mesh->setRotation(std::atan2(t0,t1), std::asin(t2), std::atan2(t3, t4));
+		*/
+		_mesh->setRotation(rotation.x, rotation.y, rotation.z, rotation.w);
 		_mesh->updateBV();
 
 		aiString path;

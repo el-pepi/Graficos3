@@ -65,10 +65,13 @@ void Entity3D::setRotation(float rotationZ){
 	updateLocalTransformation();
 }
 //---------------------------------------------------------------------------
-void Entity3D::setRotation(float fRotationX, float fRotationY, float fRotationZ){
+void Entity3D::setRotation(float fRotationX, float fRotationY, float fRotationZ, float fRotationW){
 	_rotationX = fRotationX;
 	_rotationY = fRotationY;
 	_rotationZ = fRotationZ;
+	_rotationW = fRotationW;
+
+	//_rotation = quat;// Quaternion(fRotationX, fRotationY, fRotationZ, fRotationW);
 
 	updateLocalTransformation();
 }
@@ -122,22 +125,33 @@ void Entity3D::updateLocalTransformation(){
 	D3DXMATRIX traslatrionMat;
 	D3DXMatrixTranslation(&traslatrionMat, _posX, _posY, _posZ);
 
-	D3DXMATRIX rotationMatX;
+	D3DXQUATERNION quat;
+	quat.x = _rotationX;
+	quat.y = _rotationY;
+	quat.z = _rotationZ;
+	quat.w = _rotationW;
+	D3DXMATRIX rotationMat;
+	D3DXMatrixRotationQuaternion(&rotationMat, &quat);
+
+	/*D3DXMATRIX rotationMatX;
 	D3DXMatrixRotationX(&rotationMatX, _rotationX);
 
 	D3DXMATRIX rotationMatY;
 	D3DXMatrixRotationY(&rotationMatY, _rotationY);
 
 	D3DXMATRIX rotationMatZ;
-	D3DXMatrixRotationZ(&rotationMatZ, _rotationZ);
+	D3DXMatrixRotationZ(&rotationMatZ, _rotationZ);*/
+
 	D3DXMATRIX scaleMat;
 	D3DXMatrixScaling(&scaleMat, _scaleX, _scaleY, _scaleZ);
 
 	D3DXMatrixIdentity(_LocaltransformationMatrix);
 	D3DXMatrixMultiply(_LocaltransformationMatrix, &traslatrionMat, _LocaltransformationMatrix);
-	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMatX, _LocaltransformationMatrix);
+	/*D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMatX, _LocaltransformationMatrix);
 	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMatY, _LocaltransformationMatrix);
-	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMatZ, _LocaltransformationMatrix);
+	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMatZ, _LocaltransformationMatrix);*/
+
+	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMat, _LocaltransformationMatrix);
 	D3DXMatrixMultiply(_LocaltransformationMatrix, &scaleMat, _LocaltransformationMatrix);
 }
 //---------------------------------------------------------------------------

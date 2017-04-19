@@ -16,7 +16,7 @@ public:
 	DLLexport virtual ~Entity3D();
 	DLLexport void setPos(float fPosX, float fPosY, float fPosZ);
 	DLLexport void setRotation(float fRotation);
-	DLLexport void setRotation(float fRotationX, float fRotationY, float fRotationZ);
+	DLLexport void setRotation(float fRotationX, float fRotationY, float fRotationZ, float fRotationW);
 	DLLexport void setScale(float scaleX, float scaleY, float scaleZ);
 
 	DLLexport float posX();
@@ -53,7 +53,7 @@ public:
 
 private:
 	float _posX, _posY, _posZ;
-	float _rotationX, _rotationY, _rotationZ;
+	float _rotationX, _rotationY, _rotationZ, _rotationW;
 	float _scaleX, _scaleY, _scaleZ;
 	bool _flipX;
 	void updateLocalTransformation();
