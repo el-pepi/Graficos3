@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bsp_Plane.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity3D.h" />
@@ -162,10 +163,12 @@
     <ClInclude Include="pg2_vertexbuffer.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RenderTypes.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bsp_Plane.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity3D.cpp" />
@@ -186,6 +189,9 @@
   <ItemGroup>
     <None Include="pg2_indexbuffer.inl" />
     <None Include="pg2_vertexbuffer.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BugMachine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

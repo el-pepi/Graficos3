@@ -4,6 +4,7 @@
 #include "postprocess.h"
 #include <stack>
 #include <typeinfo>
+#include "Bsp_Plane.h"
 
 using namespace std;
 

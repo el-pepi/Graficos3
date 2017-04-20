@@ -69,6 +69,12 @@
     <ClInclude Include="Frustum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bsp_Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -119,6 +125,9 @@
     <ClCompile Include="Frustum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bsp_Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="pg2_indexbuffer.inl">
@@ -127,5 +136,10 @@
     <None Include="pg2_vertexbuffer.inl">
       <Filter>Header Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BugMachine.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ public:
 	VertexBuffer* vertexB;
 
 
-private:
+protected:
 	Renderer rendi;
 	Primitive primitive;
 	Texture _texture;
