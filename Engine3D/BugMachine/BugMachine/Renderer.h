@@ -5,6 +5,7 @@
 #include "Mat.h"
 #include <Windows.h>
 #include "RenderTypes.h"
+#include "Bsp_Plane.h"
 
 
 struct IDirect3D9;
@@ -16,6 +17,7 @@ typedef ID3DXFont* Font;
 
 class IndexBuffer;
 class VertexBuffer;
+class Bsp_Plane;
 
 #define DLLexport __declspec(dllexport)
 class Renderer{
@@ -52,6 +54,8 @@ public:
 	DLLexport void setTotalFaces(int faces);
 	DLLexport int getTotalFaces();
 
+	DLLexport void AddBspPlane(Bsp_Plane plane);
+
 private:
 	VertexBuffer* v_buffer;
 	VertexBuffer* v_bufferS;
@@ -61,5 +65,6 @@ private:
 	VertexBuffer* _vertexBuffer;
 	IndexBuffer* _indexBuffer;
 
+	std::vector<Bsp_Plane> _planes;
 };
 #endif

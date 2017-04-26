@@ -1,14 +1,21 @@
-﻿  Node.cpp
+﻿  pg2_vertexbuffer.cpp
+  pg2_indexbuffer.cpp
+  Text.cpp
+  Renderer.cpp
+  Node.cpp
   Mesh.cpp
   Importador.cpp
-c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\bsp_plane.h(12): error C3646: 'side': especificador de invalidación desconocido
-c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\bsp_plane.h(12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
   Game.cpp
+  Frustum.cpp
   Entity3D.cpp
   Engine.cpp
+  Camera.cpp
   Bsp_Plane.cpp
-c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\bsp_plane.h(12): error C3646: 'side': especificador de invalidación desconocido
-c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\bsp_plane.h(12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\bsp_plane.cpp(3): error C2512: 'Mesh': no hay disponible un constructor predeterminado adecuado
-  c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\mesh.h(6): note: vea la declaración de 'Mesh'
   Generando código...
+     Creando biblioteca C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.lib y objeto C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.exp
+Window.obj : warning LNK4099: no se encontr¾ PDB 'vc140.pdb' con 'Window.obj' o en 'C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\bin\Win32\Debug\vc140.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
+pg1_timer.obj : warning LNK4099: no se encontr¾ PDB 'vc140.pdb' con 'pg1_timer.obj' o en 'C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\bin\Win32\Debug\vc140.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
+pg1_input.obj : warning LNK4099: no se encontr¾ PDB 'vc140.pdb' con 'pg1_input.obj' o en 'C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\bin\Win32\Debug\vc140.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
+pg1_directinput.obj : warning LNK4099: no se encontr¾ PDB 'vc140.pdb' con 'pg1_directinput.obj' o en 'C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\bin\Win32\Debug\vc140.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
+  BugMachine.vcxproj -> C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.dll
+  BugMachine.vcxproj -> C:\Users\822\Documents\Graficos3\Engine3D\BugMachine\\bin\Win32\Debug\BugMachine.pdb (Full PDB)

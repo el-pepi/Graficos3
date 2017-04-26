@@ -11,6 +11,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <math.h>
+#include "Bsp_Plane.h"
 
 D3DPRIMITIVETYPE primitiveTypes[Primitive::PrimitiveCount] = {
 	D3DPT_TRIANGLELIST,
@@ -185,4 +186,9 @@ void Renderer::setTotalFaces(int faces) {
 }
 int Renderer::getTotalFaces() {
 	return totalFaces;
+}
+
+DLLexport void Renderer::AddBspPlane(Bsp_Plane plane)
+{
+	_planes.push_back(plane);
 }
