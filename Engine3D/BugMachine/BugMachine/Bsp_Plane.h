@@ -5,8 +5,6 @@
 #include "RenderTypes.h"
 #include "Mat.h"
 
-typedef D3DXPLANE* Plane;
-
 enum Side
 {
 	Left,

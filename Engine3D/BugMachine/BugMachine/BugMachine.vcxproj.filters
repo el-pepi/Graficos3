@@ -75,9 +75,6 @@
     <ClInclude Include="Bsp_Plane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BSP_PlaneNew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">

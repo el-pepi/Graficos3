@@ -48,5 +48,5 @@ bool Bsp_Plane::IsOnCorrectSide(AABB aabb)
 		}
 	}
 
-	return true;
+	return false;
 }

@@ -56,6 +56,9 @@ public:
 
 	DLLexport void AddBspPlane(Bsp_Plane plane);
 
+	DLLexport bool CanDraw(AABB aabb);
+	DLLexport void SetCamPos(float x, float y, float z);
+
 private:
 	VertexBuffer* v_buffer;
 	VertexBuffer* v_bufferS;

@@ -2,6 +2,8 @@
   pg2_indexbuffer.cpp
   Text.cpp
   Renderer.cpp
+c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\renderer.cpp(198): warning C4018: '<': no coinciden signed/unsigned
+c:\users\822\documents\graficos3\engine3d\bugmachine\bugmachine\renderer.cpp(208): warning C4018: '<': no coinciden signed/unsigned
   Node.cpp
   Mesh.cpp
   Importador.cpp

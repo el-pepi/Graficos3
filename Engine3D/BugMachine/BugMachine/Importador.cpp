@@ -5,6 +5,8 @@
 #include <stack>
 #include <typeinfo>
 #include "Bsp_Plane.h"
+#include <d3dx9.h>
+#pragma comment (lib, "d3dx9.lib")
 
 using namespace std;
 
@@ -27,6 +29,7 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 	for (unsigned int i = 0; i < node.mNumMeshes; i++){
 		Mesh* _mesh = new Mesh(rendi);
 		_mesh->setName(node.mName.C_Str());
+
 
 		const aiMesh* mesh = scene.mMeshes[node.mMeshes[i]];
 
@@ -108,24 +111,29 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 			_mesh->setTextureId(NULL);
 		}
 
+		_mesh->updateWordTransformation();
+		if (_mesh->getName().find("BSP_")) {
+			rendi.AddBspPlane(_mesh->getPlane());
+		}
+
 		orkSceneRoot.AddChild(_mesh);
-		}
+	}
 
-		if (node.mNumChildren > 0)
+	if (node.mNumChildren > 0)
+	{
+		for (unsigned int i = 0; i < node.mNumChildren; i++)
 		{
-			for (unsigned int i = 0; i < node.mNumChildren; i++)
-				{
-					Node* _node = new Node();
-					aiVector3t<float> scale;
-					aiQuaterniont<float> rotation;
-					aiVector3t<float> position;
-					node.mTransformation.Decompose(scale, rotation, position);
-					_node->setPos(position.x, position.y, position.z);
-					_node->setScale(scale.x, scale.y, scale.z);
+			Node* _node = new Node();
+			aiVector3t<float> scale;
+			aiQuaterniont<float> rotation;
+			aiVector3t<float> position;
+			node.mTransformation.Decompose(scale, rotation, position);
+			_node->setPos(position.x, position.y, position.z);
+			_node->setScale(scale.x, scale.y, scale.z);
 
-					_node->setName(node.mName.C_Str());
-					orkSceneRoot.AddChild(_node);
-					getChild(*node.mChildren[i], scene, *_node, rendi);
-				}
+			_node->setName(node.mName.C_Str());
+			orkSceneRoot.AddChild(_node);
+			getChild(*node.mChildren[i], scene, *_node, rendi);
 		}
+	}
 }

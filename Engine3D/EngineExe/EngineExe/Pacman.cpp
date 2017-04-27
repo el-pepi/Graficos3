@@ -105,5 +105,6 @@ void Pacman::frame(Renderer& renderer, Input& input, Timer& timer){
 	 _text.setText(_text._text + "\n\n Drawn polygons: " + std::to_string(renderer.getDrawnFaces()) + "\n Total polygons: " + std::to_string(renderer.getTotalFaces()));
 	 renderer.setDrawnFaces(0);
 	 _text.draw(renderer);
+
 }
 //---------------------------------------------------------------------------

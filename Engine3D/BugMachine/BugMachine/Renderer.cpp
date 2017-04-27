@@ -192,3 +192,20 @@ DLLexport void Renderer::AddBspPlane(Bsp_Plane plane)
 {
 	_planes.push_back(plane);
 }
+
+DLLexport bool Renderer::CanDraw(AABB aabb)
+{
+	for (int i = 0; i < _planes.size(); i++) {
+		if (_planes[i].IsOnCorrectSide(aabb) == false) {
+			return false;
+		}
+	}
+	return true;
+}
+
+DLLexport void Renderer::SetCamPos(float x, float y, float z)
+{
+	for (int i = 0; i < _planes.size(); i++) {
+		_planes[i].SetCameraPos(x,y,z);
+	}
+}

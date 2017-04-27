@@ -24,6 +24,23 @@ void Mesh::getChild(std::string name, Entity3D& child){
 	}
 }
 
+DLLexport Plane Mesh::getPlane()
+{
+	Plane p = new D3DXPLANE();
+
+	D3DXVECTOR3* pos = new D3DXVECTOR3(_vertices[0].x, _vertices[0].y, _vertices[0].z);
+	D3DXVECTOR3* pos2 = new D3DXVECTOR3(_vertices[1].x, _vertices[1].y, _vertices[1].z);
+	D3DXVECTOR3* pos3 = new D3DXVECTOR3(_vertices[2].x, _vertices[2].y, _vertices[2].z);
+
+	D3DXPlaneFromPoints(p,pos,pos2,pos3);
+
+	return D3DXPlaneTransform(p,p,_WordtransformationMatrix);
+	/*D3DXPlaneTransform()
+
+	pos->x = _vertices[0].x;*/
+
+}
+
 void Mesh::updateBV(){
 
 	D3DXVECTOR3* wordScale = new D3DXVECTOR3();
@@ -62,7 +79,6 @@ void Mesh::buildBV(){
 	xMin = xMax = _vertices[0].x;
 	yMin = yMax = _vertices[0].y;
 	zMin = zMax = _vertices[0].z;
-
 	for (unsigned int i = 0; i < vertexB->vertexCount(); i++)
 	{
 		if (_vertices[i].x < xMin)
@@ -145,14 +161,16 @@ void Mesh::draw(Renderer& rkRenderer, CollisionResult eParentResult, Frustum& rk
 
 	if (eParentResult != AllOutside)
 	{
-		rendi.setCurrentTexture(_texture);
-		rendi.setMatrix(MatrixType::World, _WordtransformationMatrix);
-		rendi.drawCurrentBuffers(primitive);
-		
-		_text.setText(_text._text + "\n   +" + getName() + " (" + std::to_string(getPolygonCount())+")");
+		if (rendi.CanDraw(BV)) {
+			rendi.setCurrentTexture(_texture);
+			rendi.setMatrix(MatrixType::World, _WordtransformationMatrix);
+			rendi.drawCurrentBuffers(primitive);
+
+			_text.setText(_text._text + "\n   +" + getName() + " (" + std::to_string(getPolygonCount()) + ")");
 
 
-		rkRenderer.setDrawnFaces(rkRenderer.getDrawnFaces() + getPolygonCount());
+			rkRenderer.setDrawnFaces(rkRenderer.getDrawnFaces() + getPolygonCount());
+		}
 	}
 }
 

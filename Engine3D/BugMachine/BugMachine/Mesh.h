@@ -28,6 +28,8 @@ public:
 
 	DLLexport void getChild(std::string name, Entity3D& child);
 
+	DLLexport Plane getPlane();
+
 	IndexBuffer* indexB;
 	VertexBuffer* vertexB;
 
