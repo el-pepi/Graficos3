@@ -56,8 +56,8 @@ bool Pacman::init(Renderer& rendi){
 	//nodo1->setRotation(0, 0, 0, 0);
 	nodo1->setPos(0, 0, 0);
 
-	//teapot = new Mesh(rendi);
-	//nodo1->getChild("Plano", *teapot);
+	teapot = new Mesh(rendi);
+	nodo1->getChild("Movil", *teapot);
 
 
 	frustum = new Frustum(rendi);
@@ -76,8 +76,10 @@ void Pacman::frame(Renderer& renderer, Input& input, Timer& timer){
 	_text.setText("");
 
 	// Modificar traslacion Teapot
-	//if (input.keyDown(input.KEY_LEFT)) teapot->setPos(teapot->posX() - ScaleModif, teapot->posY(), teapot->posZ());
-	//if (input.keyDown(input.KEY_RIGHT))teapot->setPos(teapot->posX() + ScaleModif, teapot->posY(), teapot->posZ());
+	if (input.keyDown(input.KEY_LEFT)) teapot->setPos(teapot->posX() + ScaleModif, teapot->posY(), teapot->posZ());
+	if (input.keyDown(input.KEY_RIGHT))teapot->setPos(teapot->posX() - ScaleModif, teapot->posY(), teapot->posZ());
+	if (input.keyDown(input.KEY_DOWN)) teapot->setPos(teapot->posX(), teapot->posY(), teapot->posZ() + ScaleModif);
+	if (input.keyDown(input.KEY_UP))teapot->setPos(teapot->posX(), teapot->posY(), teapot->posZ() - ScaleModif);
 	// Modificar escala Teapot
 	//if (input.keyDown(input.KEY_UP))   teapot->setScale(teapot->scaleX(), teapot->scaleY() + RotModif, teapot->scaleZ());
 	//if (input.keyDown(input.KEY_DOWN)) teapot->setScale(teapot->scaleX(), teapot->scaleY() - RotModif, teapot->scaleZ());
@@ -105,6 +107,6 @@ void Pacman::frame(Renderer& renderer, Input& input, Timer& timer){
 	 _text.setText(_text._text + "\n\n Drawn polygons: " + std::to_string(renderer.getDrawnFaces()) + "\n Total polygons: " + std::to_string(renderer.getTotalFaces()));
 	 renderer.setDrawnFaces(0);
 	 _text.draw(renderer);
-
+	 renderer.SetCamPos(cam->posX, cam->posY, cam->posZ);
 }
 //---------------------------------------------------------------------------

@@ -112,8 +112,10 @@ void getChild(aiNode& node, const aiScene& scene, Node& orkSceneRoot, Renderer& 
 		}
 
 		_mesh->updateWordTransformation();
-		if (_mesh->getName().find("BSP_")) {
-			rendi.AddBspPlane(_mesh->getPlane());
+		if (! _mesh->getName().find("BSP_")) {
+			
+			_mesh->isBsp = true;
+			rendi.AddBspPlane(_mesh->getPlane(position.x,position.y,position.z, rotation.x, rotation.y, rotation.z, rotation.w));
 		}
 
 		orkSceneRoot.AddChild(_mesh);

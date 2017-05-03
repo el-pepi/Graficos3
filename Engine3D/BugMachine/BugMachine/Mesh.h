@@ -28,11 +28,11 @@ public:
 
 	DLLexport void getChild(std::string name, Entity3D& child);
 
-	DLLexport Plane getPlane();
+	DLLexport Plane getPlane(float x,float y,float z, float rotx, float roty, float rotz, float rotw);
 
 	IndexBuffer* indexB;
 	VertexBuffer* vertexB;
-
+	bool isBsp=false;
 
 protected:
 	Renderer rendi;

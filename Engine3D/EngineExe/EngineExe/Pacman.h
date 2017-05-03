@@ -13,7 +13,7 @@ private:
 	Node* nodo1;
 	Frustum* frustum;
 	Importador* importador;
-	//Mesh* teapot;
+	Mesh* teapot;
 
 	Text _text;
 };

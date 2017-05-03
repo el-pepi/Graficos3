@@ -24,7 +24,7 @@ void Mesh::getChild(std::string name, Entity3D& child){
 	}
 }
 
-DLLexport Plane Mesh::getPlane()
+DLLexport Plane Mesh::getPlane(float x,float y, float z, float rotx,float roty,float rotz,float rotw)
 {
 	Plane p = new D3DXPLANE();
 
@@ -32,13 +32,12 @@ DLLexport Plane Mesh::getPlane()
 	D3DXVECTOR3* pos2 = new D3DXVECTOR3(_vertices[1].x, _vertices[1].y, _vertices[1].z);
 	D3DXVECTOR3* pos3 = new D3DXVECTOR3(_vertices[2].x, _vertices[2].y, _vertices[2].z);
 
-	D3DXPlaneFromPoints(p,pos,pos2,pos3);
-
-	return D3DXPlaneTransform(p,p,_WordtransformationMatrix);
-	/*D3DXPlaneTransform()
-
-	pos->x = _vertices[0].x;*/
-
+	D3DXVec3TransformCoord(pos, pos, _LocaltransformationMatrix);
+	D3DXVec3TransformCoord(pos2, pos2, _LocaltransformationMatrix);
+	D3DXVec3TransformCoord(pos3, pos3, _LocaltransformationMatrix);
+	
+	D3DXPlaneFromPoints(p, pos, pos2, pos3);
+	return p;
 }
 
 void Mesh::updateBV(){
@@ -161,7 +160,7 @@ void Mesh::draw(Renderer& rkRenderer, CollisionResult eParentResult, Frustum& rk
 
 	if (eParentResult != AllOutside)
 	{
-		if (rendi.CanDraw(BV)) {
+		if (rkRenderer.CanDraw(BV) || isBsp) {
 			rendi.setCurrentTexture(_texture);
 			rendi.setMatrix(MatrixType::World, _WordtransformationMatrix);
 			rendi.drawCurrentBuffers(primitive);

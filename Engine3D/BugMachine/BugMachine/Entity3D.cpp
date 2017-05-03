@@ -153,6 +153,7 @@ void Entity3D::updateLocalTransformation(){
 
 	D3DXMatrixMultiply(_LocaltransformationMatrix, &rotationMat, _LocaltransformationMatrix);
 	D3DXMatrixMultiply(_LocaltransformationMatrix, &scaleMat, _LocaltransformationMatrix);
+
 }
 //---------------------------------------------------------------------------
 void Entity3D::updateWordTransformation(){
